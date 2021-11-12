@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import Layout from "../Layout"
 import { showError, showLoading } from '../../utilities/messages';
 import { login } from "../../api/apiAuth";
+import { authenticate, isAuthenticated } from "../../utilities/authentication";
 
 
 const SignIn = () => {
@@ -36,28 +37,25 @@ const SignIn = () => {
 
         login({ email, password })
             .then(response => {
-                setValues({
-                    email: '',
-                    password: '',
-                    loading: false,
-                    disabled: false,
-                    redirect: true
+                authenticate(response.data.access_token, () => {
+                    setValues({
+                        email: '',
+                        password: '',
+                        loading: false,
+                        disabled: false,
+                        redirect: true
 
+                    })
                 })
             })
             .catch(err => {
-                let errMessage = 'Something went wrong!'
+                let errMsg = 'Something went wrong!';
                 if (err.response) {
-                    errMessage = err.response.data;
+                    errMsg = err.response.data.error;
                 } else {
-                    errMessage = err
+                    errMsg = err.message;
                 }
-                setValues({
-                    ...values,
-                    error: errMessage,
-                    disabled: false,
-                    loading: false
-                })
+                setValues({ ...values, error: errMsg, disabled: false, loading: false })
             })
 
     }
@@ -88,6 +86,7 @@ const SignIn = () => {
 
     const redirectUser = () => {
         if (redirect) return <Redirect to="/" />
+        if (isAuthenticated()) return <Redirect to="/" />
     }
 
     return (

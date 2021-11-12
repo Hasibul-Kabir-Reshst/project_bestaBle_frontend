@@ -53,14 +53,14 @@ const SignUp = () => {
                 if (err.response) {
                     errMsg = err.response.data;
                 } else {
-                    console.log(err);
-                    //errMsg = err.message;
+                    errMsg = err.message;
                 }
                 setValues({ ...values, error: errMsg, disabled: false, loading: false })
             })
     }
 
     const signUpForm = () => (
+
         <Form onSubmit={handleSubmit}>
             <FormGroup row>
                 <Label for="exampleEmail" sm={2}>Name</Label>
