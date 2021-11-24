@@ -3,8 +3,6 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { isAuthenticated, userInfo } from '../utilities/authentication';
 
 
-
-
 const Menu = () => {
     return (
         <div className="fixed-top">
@@ -22,15 +20,16 @@ const Menu = () => {
                             <DropdownToggle nav caret>
                                 Explore
                             </DropdownToggle>
-                            {/* <DropdownMenu right>
-                                <DropdownItem tag={NavLink} to="/onlinejob">
-                                    Online Service
+                            <DropdownMenu right>
+                                <DropdownItem tag={NavLink} to="/services">
+                                    Service
                                 </DropdownItem>
-                                <DropdownItem divider />
+
+                                {/* <DropdownItem divider />
                                 <DropdownItem tag={NavLink} to="/localjob">
                                     Local Service
-                                </DropdownItem>
-                            </DropdownMenu> */}
+                                </DropdownItem> */}
+                            </DropdownMenu>
                         </UncontrolledDropdown>
 
                         {!isAuthenticated() && (<>

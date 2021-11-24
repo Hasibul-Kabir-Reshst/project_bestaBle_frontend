@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { userInfo } from '../../utilities/authentication';
 
 const Dashboard = () => {
-    const { name, email, role } = userInfo();
+    const { userId, userName, email, role } = userInfo();
     const UserLinks = () => {
         return (
             <div className="card">
@@ -33,7 +33,8 @@ const Dashboard = () => {
         <div className="card mb-5">
             <h3 className="card-header">User Information</h3>
             <ul className="list-group">
-                <li className="list-group-item">{name}</li>
+                <li className="list-group-item">{userId}</li>
+                <li className="list-group-item">{userName}</li>
                 <li className="list-group-item">{email}</li>
                 <li className="list-group-item">{role}</li>
             </ul>
