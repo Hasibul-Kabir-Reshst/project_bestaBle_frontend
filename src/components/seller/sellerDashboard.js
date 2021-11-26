@@ -14,6 +14,10 @@ const sellerDashboard = () => {
                     </li>
 
                     <li className="list-group-item">
+                        <Link className="nav-link" to="/myservices">My Services</Link>
+                    </li>
+
+                    <li className="list-group-item">
                         <Link className="nav-link" to="/createcategory">Create service category</Link>
                     </li>
 
@@ -28,11 +32,15 @@ const sellerDashboard = () => {
 
     const UserInfo = () => (
         <div className="card mb-5">
-            <h3 className="card-header">User Information</h3>
+            <h3 className="card-header">Profile</h3>
             <ul className="list-group">
+                <label className="text-muted ">ID</label>
                 <li className="list-group-item">{userId}</li>
+                <label className="text-muted ">User Name</label>
                 <li className="list-group-item">{userName}</li>
+                <label className="text-muted ">Email</label>
                 <li className="list-group-item">{email}</li>
+                <label className="text-muted ">User Role</label>
                 <li className="list-group-item">{role}</li>
             </ul>
         </div>

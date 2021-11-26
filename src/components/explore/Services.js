@@ -77,7 +77,7 @@ const Services = () => {
     }
 
     return (
-        <Layout title="Explore Services" className="container-fluid mt-5">
+        <Layout title="Explore Services" className="container-fluid bg-dark text-white mt-5">
             <br />
             <br />
             {showFilters()}

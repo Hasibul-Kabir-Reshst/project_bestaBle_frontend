@@ -47,9 +47,6 @@ const Menu = () => {
                                     <img src="assets/avatar.png" class="rounded-circle" alt="profile" width="30px" />
                                 </DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem tag={NavLink} to="/">
-                                        Profile
-                                    </DropdownItem>
                                     <DropdownItem divider />
                                     {userInfo().role == 'Seller' ? (<> <DropdownItem tag={NavLink} to="/sellerdashboard">
                                         Dashboard

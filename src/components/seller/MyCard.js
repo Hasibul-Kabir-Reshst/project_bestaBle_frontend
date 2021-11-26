@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import { API } from "../../utilities/config";
 import { isAuthenticated } from "../../utilities/authentication";
 
-const ServiceCard = ({ service, handleAddToCart }) => {
+const MyServiceCard = ({ service, handleAddToCart }) => {
     const titleStyle = {
         display: "block",
         textOverflow: "ellipsis",
@@ -33,23 +32,13 @@ const ServiceCard = ({ service, handleAddToCart }) => {
                     <span style={{ fontSize: 20 }}>&#2547;</span>{service.price}
                     <div style={{ minHeight: "3em" }}>
                         <label className="text-muted">Service Provider:</label>
-                        <p style={titleStyle}>{service.seller.name}</p>
+                        <p style={titleStyle}>{service.seller && service.seller.name}</p>
                     </div>
-                    <Link to={`/service/${service._id}`}>
-                        <button className="btn btn-outline-warning btn-sm">Service Details</button>
-                    </Link>
-                    {/* <Link to="/Saddress">
-                        <button className="btn btn-outline-primary btn-sm">Get Service</button>
-                    </Link> */}
 
-                    {/* <button className="btn btn-outline-primary btn-sm" onClick={handleAddToCart} >Add to Cart</button> */}
-                    {/* {product.quantity ? <>
-                        &nbsp;<button className="btn btn-outline-primary btn-sm" >Add to Cart</button>
-                    </> : ""} */}
                 </div>
             </div>
         </div>
     )
 }
 
-export default ServiceCard;
+export default MyServiceCard;

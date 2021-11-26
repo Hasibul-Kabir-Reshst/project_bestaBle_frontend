@@ -7,6 +7,8 @@ import { showError, showLoading } from '../../utilities/messages';
 import { register } from '../../api/apiAuth';
 
 const SignUp = () => {
+    const roles = ["Buyer", "Seller"];
+
     const [values, setValues] = useState({
         name: '',
         email: '',
@@ -63,21 +65,33 @@ const SignUp = () => {
 
         <Form onSubmit={handleSubmit}>
             <FormGroup row>
-                <Label for="exampleEmail" sm={2}>Name</Label>
+                <Label for="Role" sm={2}>Your Role</Label>
+                <Col sm={2}>
+                    <Input type="select" name="select" id="exampleSelect">
+                        <option>--Select--</option>
+                        {roles.map((role) => (
+                            <option value={role} required onChange={handleChange}>{role}</option>
+                        ))}
+                    </Input>
+                </Col>
+            </FormGroup>
+            <br />
+            <FormGroup row>
+                <Label for="Name" sm={2}>Name</Label>
                 <Col sm={6}>
                     <Input type="text" name="name" id="exampleEmail" placeholder="User Name" value={name} required onChange={handleChange} />
                 </Col>
             </FormGroup>
             <br />
             <FormGroup row>
-                <Label for="exampleEmail" sm={2}>Email</Label>
+                <Label for="Email" sm={2}>Email</Label>
                 <Col sm={6}>
                     <Input type="email" name="email" id="exampleEmail" placeholder="User Email" value={email} required onChange={handleChange} />
                 </Col>
             </FormGroup>
             <br />
             <FormGroup row>
-                <Label for="examplePassword" sm={2}>Password</Label>
+                <Label for="Password" sm={2}>Password</Label>
                 <Col sm={6}>
                     <Input type="password" name="password" id="examplePassword" placeholder="User Password" value={password} required onChange={handleChange} />
                 </Col>

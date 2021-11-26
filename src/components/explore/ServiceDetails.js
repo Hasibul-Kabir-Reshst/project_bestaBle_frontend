@@ -80,12 +80,15 @@ const ServiceDetails = (props) => {
                     <h3>{service.title}</h3>
                     <span style={{ fontSize: 20 }}>&#2547;</span>{service.price}
                     <p>{service.description}</p>
-                    <label className="text-muted">Service provide in:</label>
+                    <label className="fw-bold">Service provide in:</label>
                     <p style={titleStyle}>{service.deleverytime} days</p>
-                    {/* <label className="text-muted">Service provider:</label>
-                    <p style={titleStyle}>Name: {service.seller.name}</p>
-                    <p style={titleStyle}>Id: {service.seller._id}</p> */}
-                    {/* <button className="btn btn-outline-primary btn-md" onClick={handleAddToCart(service)} >Add to Cart</button> */}
+                    <label className="fw-bold">Service provider:</label>
+                    <br />
+                    <label className="text-muted">Name</label>
+                    <p style={titleStyle}>{service.seller && service.seller.name}</p>
+                    <label className="text-muted">Id</label>
+                    <p style={titleStyle}>{service.seller && service.seller._id}</p>
+                    <button className="btn btn-outline-primary btn-md">Contact To Get Service</button>
                     {/* <button className="btn btn-outline-primary btn-md" >Get Service</button> */}
                 </div>
             </div>

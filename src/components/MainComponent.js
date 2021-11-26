@@ -13,6 +13,7 @@ import CreateCategory from './seller/createCategory';
 import AddService from './seller/AddService';
 import ServiceDetails from './explore/ServiceDetails';
 import Services from './explore/Services';
+import MyServices from './seller/MyServices';
 import Address from './order/Address';
 import Checkout from './order/Checkout';
 
@@ -29,6 +30,7 @@ const MainComponent = () => {
                 <Route path="/createcategory" exact component={CreateCategory} />
                 <Route path="/addservice" exact component={AddService} />
                 <Route path="/services" exact component={Services} />
+                <Route path="/myservices" exact component={MyServices} />
                 <Route path="/Saddress" exact component={Address} />
                 <Route path="/checkout" exact component={Checkout} />
                 <Route path="/service/:id" exact component={ServiceDetails} />
